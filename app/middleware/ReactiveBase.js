@@ -9,7 +9,7 @@ export default class ReactiveBase extends Component {
 		this.state = {};
 		this.type = this.props.type ? this.props.type : "*";
 		this.appbaseRef = new Appbase({
-			url:"http://172.16.230.127:9200",
+			url: this.props.url,
 			appname: this.props.app,
 			credentials: this.props.credentials,
 			type: this.type
@@ -34,6 +34,7 @@ export default class ReactiveBase extends Component {
 }
 
 ReactiveBase.propTypes = {
+	url : React.PropTypes.string.isRequired,
 	app: React.PropTypes.string.isRequired,
 	credentials: helper.reactiveBaseValidation,
 	type: React.PropTypes.string,
@@ -48,5 +49,6 @@ ReactiveBase.defaultProps = {
 ReactiveBase.childContextTypes = {
 	appbaseRef: React.PropTypes.any.isRequired,
 	type: React.PropTypes.any.isRequired,
-	app: React.PropTypes.any
+	app: React.PropTypes.any,
+	url : React.propTypes.any
 };
