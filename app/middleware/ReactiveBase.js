@@ -20,7 +20,8 @@ export default class ReactiveBase extends Component {
 		return {
 			appbaseRef: this.appbaseRef,
 			type: this.type,
-			app: this.props.app
+			app: this.props.app,
+			url:this.props.url
 		};
 	}
 
